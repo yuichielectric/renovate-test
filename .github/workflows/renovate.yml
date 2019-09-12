@@ -1,13 +1,11 @@
 name: Renovate
 
-on:
-  schedule:
-    - cron: "30 * * * *"
+on: issue
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: docker://renovate/renovate:latest
+      - runs: docker run -rm renovate/renovate --token ${GITHUB_TOKEN} ${GITHUB_REPOSITORY}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
