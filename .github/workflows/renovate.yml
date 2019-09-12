@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: docker run --rm renovate/renovate --token ${GITHUB_TOKEN} ${GITHUB_REPOSITORY}
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
